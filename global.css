@@ -1,0 +1,110 @@
+html{
+	background-color: black;
+	height: 95%;
+}
+
+body{
+	width: 960px;
+	margin-left: auto;
+	margin-right: auto;
+	font-family: Georgia, serif;
+	background-color: white;
+	padding: 20px;	
+	box-shadow: 0 0 10px #000000;
+	height: 95%;
+}
+
+h1, h2, h3{
+	font-weight: bold;
+	font-family: Arial, sans-serif; 
+}
+
+h1{
+	float: left;
+	padding: 25px 0 0 15px;
+	margin: 0;
+}
+
+#logo {
+	float: left;
+	padding: 0;
+	margin: 0;
+}
+
+.cleardiv{
+	clear: both;
+}
+
+#navbar{
+	float: left;
+	vertical-align: bottom;
+	padding: 10px 0 10px 0;
+	background-color: black;
+	color: white;
+	width: 100%;
+}
+
+#navbar ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+	font-weight: bold;
+	font-family: Arial, sans-serif; 
+}
+
+#navbar li {
+	display:inline;
+	margin-right: 5px;
+}
+
+#navbar a:visited, #navbar a:link, #navbar a:visited {
+	color: white;
+	text-decoration: none;
+}
+
+#content{
+	clear: both;
+	padding-top: 10px;
+}
+
+.label {
+	margin: 0;
+	padding: 0;
+	float: left;
+	width: 175px;
+	font-family: Arial, sans-serif; 
+	font-size: 16px;
+}
+
+.infobox p{
+	width: 50%;
+	border: 1px dotted black;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	font-family: Arial, sans-serif; 
+	background-color: #FFFFCC;
+}
+
+#loginform, #registerform{
+	float: left;
+	border: 1px solid;
+	padding: 5px 15px 15px 15px;
+}
+
+#loginform h3, #registerform h3{
+	text-align: center;
+}
+
+#registerform{
+	margin-left: 125px;
+}
+
+#viewrecruits, #viewrecruits th{
+	border: 1px solid black;
+}
+
+#viewrecruits th{
+	padding: 3px;
+	margin: 0px;
+}
