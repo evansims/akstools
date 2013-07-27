@@ -18,7 +18,7 @@
 <? 
 // Fill table with currently active recruits
 // grab active recruits from DB
-if ($dbR = $db->query("SELECT * FROM recruits")){
+if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart")){
 	if ($dbR->num_rows > 0){
 		for($i = 0; $i < $dbR->num_rows; $i++){
 			$result = $dbR->fetch_assoc();
@@ -42,9 +42,9 @@ if ($dbR = $db->query("SELECT * FROM recruits")){
 			<td>{$result['gameID']}</td>
 			<td>{$trialDate}</td>
 			<td>{$datediff}</td>
-			<td>Comments</td>
-			<td>O.Score</td>
-			<td>M.Score</td></tr>";	
+			<td>0 <img src='img/plusbutton.png'/></td>
+			<td><img src='img/thumbsup.png'/> 0 <img src='img/thumbsdown.png'/> 0</td>
+			<td><img src='img/thumbsup.png'/> 0 <img src='img/thumbsdown.png'/> 0</td></tr>";	
 		}
 	}
 }	
