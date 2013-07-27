@@ -87,7 +87,7 @@ class userSession{
 		$dbR = $db->query("SELECT * FROM users WHERE username = '$username'");
 		
 		if($dbR->num_rows == 0){
-			$dbR = $db->query("INSERT INTO users (username, password, email, accessID) VALUES ('$username','$password','$email', 1)");
+			$dbR = $db->query("INSERT INTO users (username, password, email, accessID) VALUES ('$username','$password','$email', 0)");
 			return true; 
 		}else{
 			return false; 
