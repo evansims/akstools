@@ -36,9 +36,13 @@ if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart")){
 
 			// get vote counts
 			$dbR2 = $db->query("SELECT * FROM votes WHERE recruitID = '{$result['recruitID']}' AND vote > 0 AND userAccessLevel > 1");
-			$upVotes = $dbR2->num_rows;
+			$upOfficerVotes = $dbR2->num_rows;
 			$dbR2 = $db->query("SELECT * FROM votes WHERE recruitID = '{$result['recruitID']}' AND vote < 0 AND userAccessLevel > 1");
-			$downVotes = $dbR2->num_rows;
+			$downOfficerVotes = $dbR2->num_rows;
+			$dbR2 = $db->query("SELECT * FROM votes WHERE recruitID = '{$result['recruitID']}' AND vote > 0 AND userAccessLevel = 1");
+			$upMemberVotes = $dbR2->num_rows;
+			$dbR2 = $db->query("SELECT * FROM votes WHERE recruitID = '{$result['recruitID']}' AND vote < 0 AND userAccessLevel = 1");
+			$downMemberVotes = $dbR2->num_rows;
 
 			// display recruit info in a table
 			echo "<tr>
@@ -50,11 +54,9 @@ if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart")){
 			<td>{$trialDate}</td>
 			<td>{$datediff}</td>
 			<td>0 <img src='img/plusbutton.png'/></td>
-			<td><img src='img/thumbsup.png'/> {$upVotes} <img src='img/thumbsdown.png'/> {$downVotes}</td>
-			<td><img src='img/thumbsup.png'/> 0 <img src='img/thumbsdown.png'/> 0</td>
+			<td><img src='img/thumbsup.png'/> {$upOfficerVotes} <img src='img/thumbsdown.png'/> {$downOfficerVotes}</td>
+			<td><img src='img/thumbsup.png'/> {$upMemberVotes} <img src='img/thumbsdown.png'/> {$downMemberVotes}</td>
 			<td>{$result['addedUserID']}</tr>";	
-			unset($upVotes);
-			unset($downVotes);
 		}
 	}
 }	
