@@ -7,6 +7,7 @@
 	<link rel="icon" type="image/x-icon" href="favicon.ico" />
 	<script src="js/jquery-1.9.1.js"></script>
 	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
+	<script src="js/vote.js"></script>
 	<link href='js/jquery-ui-1.10.3.custom.min.css' rel='stylesheet' type='text/css' />
 	<? if($pageid == 'addrecruit'){echo "<script src='datepicker.js'></script>";} ?>
 </head>

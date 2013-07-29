@@ -14,6 +14,7 @@
 	<th>Comments</th>
 	<th>O.Score</th>
 	<th>M.Score</th>
+	<th>Added by</th>
 </tr>
 <? 
 // Fill table with currently active recruits
@@ -33,9 +34,15 @@ if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart")){
 			$trialDate = new DateTime($result['trialStart']);
 			$trialDate = "{$trialDate->format('Y-m-d')}";
 
+			// get vote counts
+			$dbR2 = $db->query("SELECT * FROM votes WHERE recruitID = '{$result['recruitID']}' AND vote > 0 AND userAccessLevel > 1");
+			$upVotes = $dbR2->num_rows;
+			$dbR2 = $db->query("SELECT * FROM votes WHERE recruitID = '{$result['recruitID']}' AND vote < 0 AND userAccessLevel > 1");
+			$downVotes = $dbR2->num_rows;
+
 			// display recruit info in a table
 			echo "<tr>
-			<td><img src='img/thumbsup.png'/><img src='img/thumbsdown.png'/></td>
+			<td><img src='img/thumbsup.png' class='voteUp' alt='voteUp' id='{$result['recruitID']}'/><img src='img/thumbsdown.png' class='voteDown' alt='voteDown' id='{$result['recruitID']}'/></td>
 			<td>{$result['name']}</td>
 			<td>{$result['forumName']}</td>
 			<td>{$result['status']}</td>
@@ -43,8 +50,11 @@ if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart")){
 			<td>{$trialDate}</td>
 			<td>{$datediff}</td>
 			<td>0 <img src='img/plusbutton.png'/></td>
+			<td><img src='img/thumbsup.png'/> {$upVotes} <img src='img/thumbsdown.png'/> {$downVotes}</td>
 			<td><img src='img/thumbsup.png'/> 0 <img src='img/thumbsdown.png'/> 0</td>
-			<td><img src='img/thumbsup.png'/> 0 <img src='img/thumbsdown.png'/> 0</td></tr>";	
+			<td>{$result['addedUserID']}</tr>";	
+			unset($upVotes);
+			unset($downVotes);
 		}
 	}
 }	

@@ -7,7 +7,7 @@ if (isset($_POST['submitRecruit'])){
 	$recruitGame = $_POST['game'];
 	$recruitTrialD = $_POST['startdate'];
 
-	$dbR = $db->query("INSERT INTO recruits (name, forumName, trialStart, gameID, status) VALUES ('$recruitIGN', '$recruitForum', '$recruitTrialD', '$recruitGame', 1)");
+	$dbR = $db->query("INSERT INTO recruits (name, forumName, trialStart, gameID, status, addedUserID) VALUES ('$recruitIGN', '$recruitForum', '$recruitTrialD', '$recruitGame', 1, '$user->user_id')");
 	
 	$infomes = 'Recruit Submitted';
 }
