@@ -1,0 +1,8 @@
+#viewrecruits{
+	border-collapse:collapse;
+	border: 1px solid black;
+}
+
+#viewrecruits td, #viewrecruits tr, #viewrecruits th{
+	border: 1px solid black;
+}

@@ -19,7 +19,7 @@
 <? 
 // Fill table with currently active recruits
 // grab active recruits from DB
-if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart")){
+if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart, name")){
 	if ($dbR->num_rows > 0){
 		for($i = 0; $i < $dbR->num_rows; $i++){
 			$result = $dbR->fetch_assoc();
