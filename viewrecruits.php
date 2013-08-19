@@ -19,7 +19,7 @@
 <? 
 // Fill table with currently active recruits
 // grab active recruits from DB
-if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart, name")){
+if ($dbR = $db->query("SELECT * FROM recruits WHERE status = 1 ORDER BY trialStart, name")){
 	if ($dbR->num_rows > 0){
 		for($i = 0; $i < $dbR->num_rows; $i++){
 			$result = $dbR->fetch_assoc();
@@ -45,10 +45,12 @@ if ($dbR = $db->query("SELECT * FROM recruits ORDER BY trialStart, name")){
 			$downMemberVotes = $dbR2->num_rows;
 
 			// display recruit info in a table
+			$recruitName = stripslashes($result['name']);
+			$recruitForum = stripslashes($result['forumName']);
 			echo "<tr>
 			<td><img src='img/thumbsup.png' class='voteUp' alt='voteUp' id='{$result['recruitID']}'/><img src='img/thumbsdown.png' class='voteDown' alt='voteDown' id='{$result['recruitID']}'/></td>
-			<td>{$result['name']}</td>
-			<td>{$result['forumName']}</td>
+			<td>{$recruitName}</td>
+			<td>{$recruitForum}</td>
 			<td>{$result['status']}</td>
 			<td>{$result['gameID']}</td>
 			<td>{$trialDate}</td>

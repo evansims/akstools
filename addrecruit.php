@@ -2,9 +2,9 @@
 
 <?
 if (isset($_POST['submitRecruit'])){
-	$recruitIGN = $_POST['IGN'];
-	$recruitForum = $_POST['forumname'];
-	$recruitGame = $_POST['game'];
+	$recruitIGN = addslashes($_POST['IGN']);
+	$recruitForum = addslashes($_POST['forumname']);
+	$recruitGame = addslashes($_POST['game']);
 	$recruitTrialD = $_POST['startdate'];
 
 	$dbR = $db->query("INSERT INTO recruits (name, forumName, trialStart, gameID, status, addedUserID) VALUES ('$recruitIGN', '$recruitForum', '$recruitTrialD', '$recruitGame', 1, '$user->user_id')");
