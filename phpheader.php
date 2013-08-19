@@ -2,7 +2,8 @@
 // PHP related header items.  Executes before HTTP header is sent.
 session_start(); // start a session
 
-include('settings.php'); // include the settings file
+// already being called in the page string
+// include('settings.php'); // include the settings file
 
 // start up a database connection
 $db = new mysqli($database_host, $database_user, $database_pass, $database_name);

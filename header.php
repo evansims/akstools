@@ -32,7 +32,7 @@
 			?>
 			<li><a href='viewrecruits.php'>View Recruits</a></li>
 			<li><a href='addrecruit.php'>Add Recruit</a></li>
-			<li>Manage Waves</li>
+			<li><a href='managewave.php'>Manage Waves</a></li>
 			<li>Manage Games</li>
 			<? if($user->sessionStatus()){echo "<li><a href='logout.php'>Logout</a></li>";}?>
 		</ul>
