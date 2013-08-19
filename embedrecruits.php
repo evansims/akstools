@@ -9,14 +9,7 @@
 
 <body>
 <?
-// Database params
-$database_host = '205.186.145.205';
-$database_user = 'rynetdbuser';
-$database_pass = 'db user PASS09';
-$database_name = 'akstools';
-
-// Admin contact email
-$contactemail = 'rjo@rynet.com';
+include('settings.php');
 
 // start up a database connection
 $db = new mysqli($database_host, $database_user, $database_pass, $database_name);
