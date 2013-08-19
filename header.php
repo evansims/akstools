@@ -21,16 +21,15 @@
 	</div>
 	<div class='cleardiv'></div>
 
-	<? // check if the user is logged in, if not and not on the index page, dump them
-		if($pageid != 'index' && (!$user->sessionStatus() || $user->user_accessLevel < 1)){
-			echo 'This site requires users to be logged in';
-			die();
-		}
-	?>
-
 	<div id='navbar'>
 		<ul>
-			<li><a href='index.php'>Home</a></li>
+			<li><a href='index.php'>Home</a></li>	
+			<? // check if the user is logged in, if not and not on the index page, dump them
+				if($pageid != 'index' && (!$user->sessionStatus() || $user->user_accessLevel < 1)){
+					echo 'This site requires users to be logged in';
+					die();
+				}
+			?>
 			<li><a href='viewrecruits.php'>View Recruits</a></li>
 			<li><a href='addrecruit.php'>Add Recruit</a></li>
 			<li>Manage Waves</li>
