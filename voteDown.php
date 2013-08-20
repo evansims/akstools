@@ -1,4 +1,5 @@
 <? 
+include('settings.php');
 include('phpheader.php');
 
 if($user->user_accessLevel < 1){
