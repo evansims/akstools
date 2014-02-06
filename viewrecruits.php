@@ -47,18 +47,21 @@ if ($dbR = $db->query("SELECT * FROM recruits WHERE status = 1 ORDER BY trialSta
 			// display recruit info in a table
 			$recruitName = stripslashes($result['name']);
 			$recruitForum = stripslashes($result['forumName']);
+			$submitName = userIDtoName($result['addedUserID']);
+			$gameShort = gameIDtoSN($result['gameID']);
+
 			echo "<tr>
 			<td><img src='img/thumbsup.png' class='voteUp' alt='voteUp' id='{$result['recruitID']}'/><img src='img/thumbsdown.png' class='voteDown' alt='voteDown' id='{$result['recruitID']}'/></td>
 			<td>{$recruitName}</td>
 			<td>{$recruitForum}</td>
 			<td>{$result['status']}</td>
-			<td>{$result['gameID']}</td>
+			<td>{$gameShort}</td>
 			<td>{$trialDate}</td>
 			<td>{$datediff}</td>
 			<td>0 <img src='img/plusbutton.png'/></td>
 			<td><img src='img/thumbsup.png'/> {$upOfficerVotes} <img src='img/thumbsdown.png'/> {$downOfficerVotes}</td>
 			<td><img src='img/thumbsup.png'/> {$upMemberVotes} <img src='img/thumbsdown.png'/> {$downMemberVotes}</td>
-			<td>{$result['addedUserID']}</tr>";	
+			<td>{$submitName}</tr>";	
 		}
 	}
 }	

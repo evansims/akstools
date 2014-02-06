@@ -25,8 +25,12 @@
 		<ul>
 			<li><a href='index.php'>Home</a></li>	
 			<? // check if the user is logged in, if not and not on the index page, dump them
-				if($pageid != 'index' && (!$user->sessionStatus() || $user->user_accessLevel < 1)){
+				if($pageid != 'index' && (!$user->sessionStatus())){
 					echo 'This site requires users to be logged in';
+					die();
+				}
+				if($pageid != 'index' && $user->user_accessLevel < 1){
+					echo 'Your account has not yet been approved.  Contact an officer';
 					die();
 				}
 			?>
@@ -34,6 +38,7 @@
 			<li><a href='addrecruit.php'>Add Recruit</a></li>
 			<li><a href='managewave.php'>Manage Waves</a></li>
 			<li>Manage Games</li>
+			<? if($user->user_accessLevel >= 3){echo "<li><a href='manageusers.php'>Manage Users</a></li>";}?>
 			<? if($user->sessionStatus()){echo "<li><a href='logout.php'>Logout</a></li>";}?>
 		</ul>
 	</div>

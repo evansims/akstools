@@ -30,4 +30,37 @@ if($mode='debug'){
 
 $user = new userSession(); // start up a user session
 $user->initUser(); // initialize the userSession class
+
+// functions
+
+// Function userIDtoname
+// takes a userID, returns a username
+function userIDtoName($userID){
+	global $db;
+
+	$dbR = 	$db->query("SELECT username FROM users WHERE userID = '$userID'");
+
+	if ($dbR->num_rows > 0){
+		$row = $dbR->fetch_assoc();
+		return $row['username'];
+	} else {
+		return false; 
+	}
+}
+
+// Function gameIDtoSN
+// takes a $gameID, returns a short name for that game
+function gameIDtoSN($gameID){
+	global $db;
+
+	$dbR = 	$db->query("SELECT nameShort FROM games WHERE gameID = '$gameID'");
+
+	if ($dbR->num_rows > 0){
+		$row = $dbR->fetch_assoc();
+		return $row['nameShort'];
+	} else {
+		return false; 
+	}
+}
 ?>
+

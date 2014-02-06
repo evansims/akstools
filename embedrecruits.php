@@ -29,7 +29,7 @@ if($db->connect_errno){
 <? 
 // Fill table with currently active recruits
 // grab active recruits from DB
-if ($dbR = $db->query("SELECT * FROM recruits ORDER BY name")){
+if ($dbR = $db->query("SELECT * FROM recruits WHERE status = 1 ORDER BY name")){
 	if ($dbR->num_rows > 0){
 		for($i = 0; $i < $dbR->num_rows; $i++){
 			$result = $dbR->fetch_assoc();
