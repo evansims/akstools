@@ -8,6 +8,7 @@
 	<script src="js/jquery-1.9.1.js"></script>
 	<script src="js/jquery-ui-1.10.3.custom.min.js"></script>
 	<script src="js/vote.js"></script>
+	<script src="js/adminrecruits.js"></script>
 	<link href='js/jquery-ui-1.10.3.custom.min.css' rel='stylesheet' type='text/css' />
 	<? if($pageid == 'addrecruit'){echo "<script src='datepicker.js'></script>";} ?>
 </head>
@@ -36,9 +37,10 @@
 			?>
 			<li><a href='viewrecruits.php'>View Recruits</a></li>
 			<li><a href='addrecruit.php'>Add Recruit</a></li>
-			<li><a href='managewave.php'>Manage Waves</a></li>
-			<li>Manage Games</li>
-			<? if($user->user_accessLevel >= 3){echo "<li><a href='manageusers.php'>Manage Users</a></li>";}?>
+			<!-- commenting out some unimplemented features -->
+			<!--<li><a href='managewave.php'>Manage Waves</a></li>-->
+			<!--<li>Manage Games</li>-->
+			<!--<? if($user->user_accessLevel >= 3){echo "<li><a href='manageusers.php'>Manage Users</a></li>";}?>-->
 			<? if($user->sessionStatus()){echo "<li><a href='logout.php'>Logout</a></li>";}?>
 		</ul>
 	</div>

@@ -11,10 +11,11 @@
 	<th>Game</th>
 	<th>Trial Date</th>
 	<th>Trial Days</th>
-	<th>Comments</th>
+	<!--<th>Comments</th>-->
 	<th>O.Score</th>
-	<th>M.Score</th>
+	<!--<th>M.Score</th>-->
 	<th>Added by</th>
+	<th>Admin</th>
 </tr>
 <? 
 // Fill table with currently active recruits
@@ -58,10 +59,12 @@ if ($dbR = $db->query("SELECT * FROM recruits WHERE status = 1 ORDER BY trialSta
 			<td>{$gameShort}</td>
 			<td>{$trialDate}</td>
 			<td>{$datediff}</td>
-			<td>0 <img src='img/plusbutton.png'/></td>
+			<!--<td>0 <img src='img/plusbutton.png'/></td>-->
 			<td><img src='img/thumbsup.png'/> {$upOfficerVotes} <img src='img/thumbsdown.png'/> {$downOfficerVotes}</td>
-			<td><img src='img/thumbsup.png'/> {$upMemberVotes} <img src='img/thumbsdown.png'/> {$downMemberVotes}</td>
-			<td>{$submitName}</tr>";	
+			<!--<td><img src='img/thumbsup.png'/> {$upMemberVotes} <img src='img/thumbsdown.png'/> {$downMemberVotes}</td>-->
+			<td>{$submitName}</td>
+			<td><img src='img/approve.png' class='approve' alt='Approve' id='{$result['recruitID']}'/><img src='img/reject.png' class='reject' alt='Reject' id='{$result['recruitID']}'/><img src='img/neutral.png' class='neutral' alt='Neutral' id='{$result['recruitID']}'/></td>
+			</tr>";	
 		}
 	}
 }	
