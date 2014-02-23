@@ -51,20 +51,39 @@ if ($dbR = $db->query("SELECT * FROM recruits WHERE status = 1 ORDER BY trialSta
 			$submitName = userIDtoName($result['addedUserID']);
 			$gameShort = gameIDtoSN($result['gameID']);
 
-			echo "<tr>
-			<td><img src='img/thumbsup.png' class='voteUp' alt='voteUp' id='{$result['recruitID']}'/><img src='img/thumbsdown.png' class='voteDown' alt='voteDown' id='{$result['recruitID']}'/></td>
-			<td>{$recruitName}</td>
-			<td>{$recruitForum}</td>
-			<td>{$result['status']}</td>
-			<td>{$gameShort}</td>
-			<td>{$trialDate}</td>
-			<td>{$datediff}</td>
-			<!--<td>0 <img src='img/plusbutton.png'/></td>-->
-			<td><img src='img/thumbsup.png'/> {$upOfficerVotes} <img src='img/thumbsdown.png'/> {$downOfficerVotes}</td>
-			<!--<td><img src='img/thumbsup.png'/> {$upMemberVotes} <img src='img/thumbsdown.png'/> {$downMemberVotes}</td>-->
-			<td>{$submitName}</td>
-			<td><img src='img/approve.png' class='approve' alt='Approve' id='{$result['recruitID']}'/><img src='img/reject.png' class='reject' alt='Reject' id='{$result['recruitID']}'/><img src='img/neutral.png' class='neutral' alt='Neutral' id='{$result['recruitID']}'/></td>
-			</tr>";	
+			if($user->user_accessLevel >= 3){
+				echo "<tr>
+				<td><img src='img/thumbsup.png' class='voteUp' alt='voteUp' id='{$result['recruitID']}'/><img src='img/thumbsdown.png' class='voteDown' alt='voteDown' id='{$result['recruitID']}'/></td>
+				<td>{$recruitName}</td>
+				<td>{$recruitForum}</td>
+				<td>{$result['status']}</td>
+				<td>{$gameShort}</td>
+				<td>{$trialDate}</td>
+				<td>{$datediff}</td>
+				<!--<td>0 <img src='img/plusbutton.png'/></td>-->
+				<td><img src='img/thumbsup.png'/> {$upOfficerVotes} <img src='img/thumbsdown.png'/> {$downOfficerVotes}</td>
+				<!--<td><img src='img/thumbsup.png'/> {$upMemberVotes} <img src='img/thumbsdown.png'/> {$downMemberVotes}</td>-->
+				<td>{$submitName}</td>
+				<td>
+					<img src='img/approve.png' class='approve' alt='Approve' id='{$result['recruitID']}'/><img src='img/reject.png' class='reject' alt='Reject' id='{$result['recruitID']}'/><img src='img/neutral.png' class='neutral' alt='Neutral' id='{$result['recruitID']}'/>
+				</td>
+				</tr>";	
+			}else{
+				echo "<tr>
+				<td><img src='img/thumbsup.png' class='voteUp' alt='voteUp' id='{$result['recruitID']}'/><img src='img/thumbsdown.png' class='voteDown' alt='voteDown' id='{$result['recruitID']}'/></td>
+				<td>{$recruitName}</td>
+				<td>{$recruitForum}</td>
+				<td>{$result['status']}</td>
+				<td>{$gameShort}</td>
+				<td>{$trialDate}</td>
+				<td>{$datediff}</td>
+				<!--<td>0 <img src='img/plusbutton.png'/></td>-->
+				<td><img src='img/thumbsup.png'/> {$upOfficerVotes} <img src='img/thumbsdown.png'/> {$downOfficerVotes}</td>
+				<!--<td><img src='img/thumbsup.png'/> {$upMemberVotes} <img src='img/thumbsdown.png'/> {$downMemberVotes}</td>-->
+				<td>{$submitName}</td>
+				<td></td>
+				</tr>";	
+			}
 		}
 	}
 }	
