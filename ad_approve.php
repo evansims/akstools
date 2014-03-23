@@ -2,7 +2,7 @@
 include('settings.php');
 include('phpheader.php');
 
-if($user->user_accessLevel <= 3){
+if($user->user_accessLevel < 3){
 		echo "Unauthorized access";
 		die();
 	}
